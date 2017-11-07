@@ -66,7 +66,7 @@
                 });
 
                 // Show menu under click me
-                $('#dropdown').on('click', function(e) {
+               /* $('#dropdown').on('click', function(e) {
                     e.stopPropagation();
                     $('#clicky-menu').toggleClass('dropdown-shown');
                 });
@@ -75,7 +75,7 @@
                 $(document).not($('#dropdown')).on('click', function(e) {
                     e.stopPropagation();
                     $('#clicky-menu').removeClass('dropdown-shown');
-                });
+                }); */
             });
         </script>
         <script type="text/javascript">
@@ -151,7 +151,7 @@
                     </div>
 
                     <div class="nav-right">
-                        <div class="nav-item has-sub" id="dropdown">
+                        <div class="nav-item has-sub toggle-hover" id="dropdown">
                             <a class="nav-dropdown-link">Go to App</a>
                             <ul class="dropdown-menu" role="menu" id="clicky-menu">
                                 <li role="menu-item"><a href="#InterStock">InterStock</a></li>

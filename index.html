@@ -59,6 +59,7 @@
 
                 // Hide menu after clicking menu item
                 $('.dropdown-menu li').on('click', function(e) {
+                    e.stopPropagation();
                     $('.header').removeClass('header-fill');
                     $('#header-menu').removeClass('active');
                     $('.nav-btn').removeClass('active');

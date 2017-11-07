@@ -1,0 +1,47 @@
+.header {
+    padding: 2rem 1 rem;
+    box-shadow: none;
+    transition: all 0.3s ease 0s;
+    background: transparent none repeat scroll 0% 0%;
+    align-items: stretch;
+    flex-grow: 1;
+    width: 100%;
+    z-index: 100%;
+    margin-bottom: 20px;
+    max-height: 100vh;
+}
+
+.header-fill {
+    background-color: #EEE;
+    box-shadow: 10px 1px 5px #CCC;
+    padding: 0px 2rem;
+    transition: all 0.3s ease 0s;
+}
+
+#splash-img {
+    background-image: url("../images/flower.jpg")
+}
+
+.nav-item {
+    color: darkgoldenrod;
+}
+
+a {
+    color: darkgoldenrod;
+}
+
+a:hover {
+    color: silver;
+}
+
+#my_email {
+    background-color: gold;
+}
+
+.card-image {
+    background-position: center;
+}
+
+#header-btn > span{
+    background-color: darkgoldenrod;
+}

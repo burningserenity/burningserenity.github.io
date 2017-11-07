@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" name="viewport" content="width=device-width, initial-scale=1">
+        <title>Nicholas Calaway's Portfolio</title>
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+        <!-- Minified Cirrus CSS -->
+        <link rel="stylesheet" href="assets/css/cirrus.min.css">
+
+        <!-- Minified Font Awesome CSS -->
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+
+        <!-- CSS Overrides -->
+        <link rel="stylesheet" href="assets/css/overrides.css">
+
+        <!-- JQuery -->
+        <script type="text/javascript" src="assets/js/jquery.js"></script>
+
+        <script type="text/javascript" src="assets/js/smoothscroll.js"></script>
+
+        <!-- Menu Toggles -->
+
+        <script type="text/javascript">// Handle navbar transformation
+            $(function() {
+
+                if ($(window).scrollTop() >= 120) {
+                    $('.header').addClass('header-fill');
+                    $('#clicky-menu').css({'background-color': '#EEE'});
+                } else {
+                    $('.header').removeClass('header-fill');
+                    $('#clicky-menu').css({'background-color': 'transparent'});
+                }
+
+                $(window).scroll(function() {
+                    if ($(window).scrollTop() >= 120) {
+                        $('.header').addClass('header-fill');
+                        $('#clicky-menu').css({'background-color': '#EEE'});
+                    } else {
+                        $('.header').removeClass('header-fill');
+                        $('#clicky-menu').css({'background-color': 'transparent'});
+                    }
+                });
+            });
+        </script>
+
+        <script type="text/javascript">// Show dropdown when clicked
+            $(() => {
+
+                $('#header-btn').on('click', function(e) {
+                    if ($(window).scrollTop() < 120) {
+                        $('.header').toggleClass('header-fill');
+                    }
+                    $('#header-menu').toggleClass('active');
+                    $('.nav-btn').toggleClass('active');
+                });
+
+                // Hide menu after clicking menu item
+                $('.dropdown-menu li').on('click', function(e) {
+                    $('.header').removeClass('header-fill');
+                    $('#header-menu').removeClass('active');
+                    $('.nav-btn').removeClass('active');
+                });
+
+                // Show menu under click me
+                $('.nav-dropdown-link').on('click', function(e) {
+                    e.stopPropagation();
+                    $('#clicky-menu').toggleClass('dropdown-shown');
+                });
+
+                // Hide click me menu
+                $(document).not($('.nav-dropdown-link')).on('click', function(e) {
+                    e.stopPropagation();
+                    $('#clicky-menu').removeClass('dropdown-shown');
+                });
+            });
+        </script>
+        <script type="text/javascript">
+            $(() => {
+                var copyTextareaBtn = $('#clipboardBtn');
+
+                copyTextareaBtn.on('click', function(event) {
+                    var copyTextarea = document.querySelector('#my_email');
+                    copyTextarea.select();
+
+                    try {
+                        var successful = document.execCommand('copy');
+                        var msg = successful ? 'successful' : 'unsuccessful';
+                        $("#my_email").addClass('text-success input-success');
+                        $("#my_email").val("Copied to clipboard");
+                        window.setTimeout(function() {
+                            $("#my_email").removeClass('text-success input-success');
+                            $("#my_email").val("nfcalaway@mailbit.io");
+                        }, 1000);
+                        console.log('Copying text command was ' + msg);
+                    } catch (err) {
+                        $("#my_email").addClass('text-error input-error');
+                        $("#my_email").val("Unable to copy, try doing it manually");
+                        window.setTimeout(function() {
+                            $("#my_email").removeClass('text-error input-error');
+                            $("#my_email").val("nfcalaway@mailbit.io");
+                        }, 1250);
+
+                        console.log('Oops, unable to copy');
+                    }
+                });
+            })
+        </script>
+
+
+    </head>
+    <body>
+
+        <div class="container-fluid">
+            <div class="header header-fixed unselectable header-animated">
+                <div class="header-brand">
+                    <div class="nav-item no-hover">
+                        <h6 class="title">Nick Calaway</h6>
+                    </div>
+                    <div class="nav-item nav-btn" id="header-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="header-nav" id="header-menu">
+                    <div class="nav-left">
+                        <div class="nav-item text-center">
+                            <a href="https://github.com/burningserenity" target="_blank">
+                                <span class="icon">
+                                    <i class="fa fa-github" aria-hidden="true"></i>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="nav-item text-center">
+                            <a href="https://linkedin.com/in/nicholas-carlton" target="_blank">
+                                <span class="icon">
+                                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="nav-item text-center">
+                            <div class="form-group">
+                                <input id="my_email" type="search" class="form-group-input" readonly="" value="nfcalaway@mailbit.io"></input>
+                                <button id="clipboardBtn" class="form-group-btn"><i class="fa fa-clipboard" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nav-right">
+                        <div class="nav-item has-sub" id="dropdown">
+                            <a class="nav-dropdown-link">Go to App</a>
+                            <ul class="dropdown-menu" role="menu" id="clicky-menu">
+                                <li role="menu-item"><a href="#InterStock">InterStock</a></li>
+                                <li role="menu-item"><a href="#fightCardScraper">Fight Card Scraper</a></li>
+                                <li role="menu-item"><a href="#Speller">Speller</a></li>
+                                <li role="menu-item"><a href="#Burger">Burger</a></li>
+                                <li role="menu-item"><a href="#Trivia">Monty Python Trivia</a></li>
+                                <li role="menu-item"><a href="#Sentiments">Tweet Sentiments</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="splash-img" class="hero fullscreen hero-img parallax-img">
+                <div class="hero-body">
+                    <div class="content text-center">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="content">
+                            <div class="row">
+                                <img src="assets/images/IMG_20170929_234444.jpg" class="level" />
+                                <p>Hello, I'm Nick. I believe that improving technology is the single most natural human activity.
+                                    Throughout history, we dare to improve every facet of our lives. Technology, in the form of  
+                                    an AI capable of beating chessmasters at their own game, or the humble chair on which a chessmaster sits,
+                                    is about empowering people to make the difficult easy and the impossible possible.
+                                </p>
+                                <p>I am fluent in Javascript on client and server, Python, HTML, CSS, and C, and am
+                                    A+ and Network+ certified. I work with NodeJS, Flask, Bootstrap, Pandas, and ReactJS.
+                                    I constantly strive to learn more, and create products worthy of my efforts.
+                                    Feel free to look through my portfolio and contact me with any questions or comments you have.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                    <div class="card" id="InterStock">
+                        <div class="card-container">
+                            <div class="card-image" style="background-image: url(assets/images/s2.reutersmedia.net.jpeg)"></div>
+                            <div class="title-container">
+                                <p class="title">InterStock</p>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <p>International closing bell prices.</p>
+                        </div>
+                        <div class="action-bar center">
+                            <a href="https://burningserenity.github.io/InterStock" target="_blank"><button class="btn">App</button></a>
+                            <a href="https://github.com/burningserenity/InterStock" target="_blank"><button class="btn">Source</button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card" id="fightCardScraper">
+                        <div class="card-container">
+                            <div class="card-image" style="background-image: url(assets/images/rory-macdonald-stephen-thompson-ufc-fight-night-89-1.jpg)"></div>
+                            <div class="title-container">
+                                <p class="title">Fight Card Scraper</p>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <p>Scrape upcoming UFC fights.</p>
+                        </div>
+                        <div class="action-bar center">
+                            <a href="http://safe-bet.herokuapp.com/" target="_blank"><button class="btn">App</button></a>
+                            <a href="https://github.com/yvannaharris/fight-card-/blob/master/scraping/ufc_upcoming_scraper.py" target="_blank"><button class="btn">Source</button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card" id="Speller">
+                        <div class="card-container">
+                            <div class="card-image" style="background-image: url(assets/images/spellcheck.jpg)"></div>
+                            <div class="title-container">
+                                <p class="title">Speller</p>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <p>Spellchecker written in C.</p>
+                        </div>
+                        <div class="action-bar center">
+                            <a href="https://github.com/burningserenity/speller" target="_blank"><button class="btn">Source</button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <br>
+                    <hr>
+                    <br>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="card" id="Burger">
+                            <div class="card-container">
+                                <div class="card-image" style="background-image: url(assets/images/20160428-memorial-day-burger-recipes-roundup-19.jpg)"></div>
+                                <div class="title-container">
+                                    <p class="title">Burger</p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <p>Proof-of-Concept using Sequelize</p>
+                            </div>
+                            <div class="action-bar center">
+                                <a href="https://mighty-river-64651.herokuapp.com/" target="_blank"><button class="btn">App</button></a>
+                                <a href="https://github.com/burningserenity/burger-sequelize" target="_blank"><button class="btn">Source</button></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card" id="Trivia">
+                            <div class="card-container">
+                                <div class="card-image" style="background-image: url(assets/images/monty-python-image-1.jpg)"></div>
+                                <div class="title-container">
+                                    <p class="title">Monty Python Trivia Game</p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <p>Monty Python and the Holy Grail Trivia!</p>
+                            </div>
+                            <div class="action-bar center">
+                                <a href="https://burningserenity.github.io/TriviaGame/" target="_blank"><button class="btn">App</button></a>
+                                <a href="https://github.com/burningserenity/TriviaGame" target="_blank"><button class="btn">Source</button></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card" id="Sentiments">
+                            <div class="card-container">
+                                <div class="card-image" style="background-image: url(assets/images/Twitter-Sentiment-analysis.jpg)"></div>
+                                <div class="title-container">
+                                    <p class="title">Tweet Sentiments</p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <p>Analyze the connotations of tweets.</p>
+                            </div>
+                            <div class="action-bar center">
+                                <a href="https://tweet-sentiments.herokuapp.com/" target="_blank"><button class="btn">App</button></a>
+                                <a href="https://github.com/burningserenity/Sentiments" target="_blank"><button class="btn">Source</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </body>
+        </html>

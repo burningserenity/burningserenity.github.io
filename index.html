@@ -71,7 +71,7 @@
                 });
 
                 // Hide click me menu
-                $(document).not($('.nav-dropdown-link')).on('click', function(e) {
+                $(document).not($('#dropdown')).on('click', function(e) {
                     e.stopPropagation();
                     $('#clicky-menu').removeClass('dropdown-shown');
                 });

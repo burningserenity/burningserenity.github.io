@@ -19,7 +19,7 @@
 }
 
 #splash-img {
-    background-image: url("../images/flower.jpg");
+    background-image: url("../images/mushrooms.jpg");
     background-position: center;
 }
 
@@ -43,6 +43,6 @@ a:hover {
     background-position: center;
 }
 
-#header-btn > span{
+#header-btn > span {
     background-color: darkgoldenrod;
 }

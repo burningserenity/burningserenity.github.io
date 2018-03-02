@@ -23,6 +23,12 @@
     background-position: center;
 }
 
+#splash-text {
+  color: #B8860B;
+  font-size: 22px;
+  margin-top: 74px;
+}
+
 .nav-item {
     color: darkgoldenrod;
 }

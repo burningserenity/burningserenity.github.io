@@ -52,3 +52,14 @@ a:hover {
 #header-btn > span{
     background-color: darkgoldenrod;
 }
+
+footer {
+  background-color: #333222;
+  padding-top: 5px;
+  padding-bottom 0px;
+}
+
+#footerLink {
+  line-height: 50px;
+  text-decoration: underline antiquewhite;
+}
